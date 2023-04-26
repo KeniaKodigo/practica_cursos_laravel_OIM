@@ -20,3 +20,7 @@ Route::get('/', function () {
 
 //creando una ruta para el metodo index() del controlador cursos
 Route::get('/courses', [CoursesController::class, 'index'])->name('getCourses'); //nombre de la ruta (name)
+Route::get('/form', [CoursesController::class, 'getForm']);
+//asigno la ruta del metodo store
+Route::post('/saveCourse', [CoursesController::class, 'store'])->name('save');
+Route::get('/editCourse', [CoursesController::class, 'edit'])->name('edit');

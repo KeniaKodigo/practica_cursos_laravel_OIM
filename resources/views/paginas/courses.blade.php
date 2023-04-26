@@ -4,16 +4,23 @@
 
 @section('contenido')
     <h1 class="text-center text-info">Lista de Cursos</h1>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="{{ url('/form')}}" class="btn btn-secondary mb-3">Registrar Curso</a>
+    <div class="row mb-5">
+        @foreach ($courses as $item)
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ url('/') }}/image/course.jpg" class="card-img-top" alt="course">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $item->title }}</h5>
+                        <p class="card-text"><b>Descripcion: </b>{{ $item->description }}</p>
+                        <p><b>Precio: </b> ${{ $item->price }}</p>
+                        
+                        <button class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Editar</button>
+                        <button class="btn btn-danger"><i class="bi bi-trash-fill"></i> Eliminar</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
+        
     </div>
 @endsection
