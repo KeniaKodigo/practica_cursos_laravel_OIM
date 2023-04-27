@@ -14,7 +14,7 @@
             <a class="nav-link" href="{{url('/courses')}}">Courses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Trainer</a>
+            <a class="nav-link" href="{{ url('/instructors') }}">Trainer</a>
           </li>
         </ul>
       </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\InstructorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,6 @@ Route::get('/editCourse/{id}', [CoursesController::class, 'edit'])->name('edit')
 Route::put('/updateCourse/{id}', [CoursesController::class, 'update'])->name('updateCourses');
 //asignando la ruta para eliminar un curso
 Route::delete('/deleteCourse/{id}', [CoursesController::class, 'destroy'])->name('deleteCourse');
+
+//asignando la ruta para obtener a todos los instructores y su busqueda por nombre
+Route::get('/instructors',[InstructorController::class, 'index'])->name('getInstructors');
