@@ -15,8 +15,19 @@
                         <p class="card-text"><b>Descripcion: </b>{{ $item->description }}</p>
                         <p><b>Precio: </b> ${{ $item->price }}</p>
                         
-                        <button class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Editar</button>
-                        <button class="btn btn-danger"><i class="bi bi-trash-fill"></i> Eliminar</button>
+                        <!-- hacemos referencia al nombre de la ruta para editar el curso -->
+                        <form action="{{ route('edit', $item->id) }}" method="POST">
+                            <!-- especificando el tipo de peticion -->
+                            @method('GET')
+                            @csrf <!-- token para autorizar la peticion -->
+                            <button class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Editar</button>
+                        </form>
+                        
+                        <form action="{{ route('deleteCourse', $item->id) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i> Eliminar</button>
+                        </form>
                     </div>
                 </div>
             </div>

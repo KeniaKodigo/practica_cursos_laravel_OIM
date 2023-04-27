@@ -23,4 +23,10 @@ Route::get('/courses', [CoursesController::class, 'index'])->name('getCourses');
 Route::get('/form', [CoursesController::class, 'getForm']);
 //asigno la ruta del metodo store
 Route::post('/saveCourse', [CoursesController::class, 'store'])->name('save');
-Route::get('/editCourse', [CoursesController::class, 'edit'])->name('edit');
+//asignando ruta con parametro
+Route::get('/editCourse/{id}', [CoursesController::class, 'edit'])->name('edit');
+
+//asignando la ruta para actualizar un registro en especifico
+Route::put('/updateCourse/{id}', [CoursesController::class, 'update'])->name('updateCourses');
+//asignando la ruta para eliminar un curso
+Route::delete('/deleteCourse/{id}', [CoursesController::class, 'destroy'])->name('deleteCourse');
